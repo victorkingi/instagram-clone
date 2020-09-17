@@ -13,6 +13,43 @@
   }
 }
 
+.app {
+  background: #fafafa;
+  height: 100vh;
+}
+
+.app_signup {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.app_header {
+  background-color: white;
+  padding: 20px;
+  border-bottom: 1px solid lightgray;
+  object-fit: contain;
+  display: flex;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.app_posts_right {
+  margin-left: 20px;
+}
+
+.app_posts {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.app_header_image {
+  object-fit: contain;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
