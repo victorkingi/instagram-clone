@@ -1,3 +1,8 @@
+## Instagram Clone
+
+This is a react instagram web app using firebase as the auth and backend.
+Basic firebase knowledge is required to understand the functionality.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
