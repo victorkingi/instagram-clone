@@ -1,7 +1,8 @@
 ## Instagram Clone
 
-This is a react instagram web app using firebase as the auth and backend.
-Basic firebase knowledge is required to understand the functionality.
+This is a react instagram clone web app using firebase as the auth and backend.[The instagram clone website](https://instagram-clone-f0622.web.app/).
+Basic firebase knowledge is required to understand the functionality. 
+NB:- Best viewed at a potrait angle instead of landscape or if possible, on an android phone. After signing up and adding your profile photo, reload the page so that firebase can confirm that you've signed in, after that you can then comment on a post, or add your own post e.g. a video or photo at the bottom of the page. Have fun trying it out
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
