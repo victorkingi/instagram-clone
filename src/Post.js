@@ -3,6 +3,7 @@ import Avatar from "@material-ui/core/Avatar";
 import {db} from "./firebase";
 import * as firebase from "firebase";
 import {Player} from "video-react";
+import "./Post.css";
 
 function Post({ postId, username, caption, user, imageUrl, videoUrl, avatar, poster }) {
     const [comments, setComments] = useState([]);
@@ -42,14 +43,10 @@ function Post({ postId, username, caption, user, imageUrl, videoUrl, avatar, pos
     }
 
     return (
-        <div className="post" style={{maxWidth: '500px', backgroundColor: 'white',
-            border: '1px solid lightgray',
-            marginBottom: '45px'
-        }}>
-            <div className="post_header" style={{  display: 'flex', alignItems: 'center', padding: '20px'}}>
+        <div className="post">
+            <div className="post_header">
                 <Avatar
                     className="post_avatar"
-                    style={{ marginRight: '10px'}}
                     alt="viczking"
                     src={avatar}
                 />
@@ -57,8 +54,7 @@ function Post({ postId, username, caption, user, imageUrl, videoUrl, avatar, pos
             </div>
 
             {imageUrl ? (
-                <img className="post_image" style={{width: '100%', objectFit: 'contain',
-                    borderTop: '1px solid lightgray', borderBottom: '1px solid lightgray'}} src={imageUrl} alt="post"/>
+                <img className="post_image" src={imageUrl} alt="post"/>
 
             ) : (
                 <Player
@@ -68,9 +64,9 @@ function Post({ postId, username, caption, user, imageUrl, videoUrl, avatar, pos
                 />
             )}
 
-            <p className="post_text" style={{fontWeight: 'normal', padding: '20px'}}><strong>{username} </strong>{caption}</p>
+            <p className="post_text"><strong>{username} </strong>{caption}</p>
             
-            <div className="post_comments" style={{padding: ''}}>
+            <div className="post_comments">
                 {
                     comments.map(({ id, comment}) => {
                         return (
@@ -82,10 +78,9 @@ function Post({ postId, username, caption, user, imageUrl, videoUrl, avatar, pos
 
             {
                 user && (
-                    <form className="post_comment_box" style={{ display: 'flex', marginTop: '10px'}}>
+                    <form className="post_comment_box">
                         <input
                             className="post_input"
-                            style={{ flex: 1, border: 'none', padding: '10px', borderTop: '1px solid lightgray'}}
                             type="text"
                             placeholder="Add a comment..."
                             value={comment}
@@ -93,7 +88,6 @@ function Post({ postId, username, caption, user, imageUrl, videoUrl, avatar, pos
                         />
                         <button
                             className="post_btn"
-                            style={{flex: 0}}
                             disabled={!comment}
                             type="submit"
                             onClick={postComment}

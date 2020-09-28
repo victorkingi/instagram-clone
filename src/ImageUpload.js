@@ -123,6 +123,8 @@ function ImageUpload({ username, avatar }) {
         <div className="image_upload">
             <progress className="image_upload_progress" value={progress} max="100" />
             <input type="text" placeholder="Enter a caption..." onChange={event => setCaption(event.target.value)}/>
+            <h6>When you upload a video, the first file selected is the thumbnail and the second is the
+                actual video. <strong>CANNOT UPLOAD MORE THAN 1 PHOTO</strong></h6>
             <input type="file" multiple="multiple" onChange={handleChange} />
             <Button onClick={handleUpload}>
                 Upload

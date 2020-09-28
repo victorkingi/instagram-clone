@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import './App.css';
-import insta from './images/instagram_name.png';
 import Post from "./Post";
 import {db, auth, storage} from "./firebase";
 import { makeStyles } from "@material-ui/core/styles";
@@ -24,7 +23,7 @@ function getModalStyle() {
 const useStyles = makeStyles((theme) => ({
     paper: {
         position: 'absolute',
-        width: 400,
+        width: 200,
         backgroundColor: theme.palette.background.paper,
         border: '2px solid #000',
         boxShadow: theme.shadows[5],
@@ -129,7 +128,7 @@ function App() {
     }
 
     return (
-        <div className="App">
+        <div className="app">
 
             <Modal
                 open={open}
@@ -137,14 +136,11 @@ function App() {
             >
                 <div style={modalStyle} className={classes.paper}>
                     <form className="app_signup">
-                        <center>
-                            <img src={insta}
-                                 style={{maxHeight: '100px', maxWidth: '100px'}}
+                            <img src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png"
                                  alt="instagram_name"
                                  className="app_headerImage"
                             />
-                        </center>
-
+                        <h7>Choose a profile photo below</h7>
                         <input type="file" onChange={handleChange}/>
 
                         <Input
@@ -176,13 +172,10 @@ function App() {
             >
                 <div style={modalStyle} className={classes.paper}>
                     <form className="app_signup">
-                        <center>
-                            <img src={insta}
-                                 style={{maxHeight: '100px', maxWidth: '100px'}}
+                            <img src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png"
                                  alt="instagram_name"
                                  className="app_headerImage"
                             />
-                        </center>
                         <Input
                             placeholder="email"
                             type="text"
@@ -200,12 +193,13 @@ function App() {
                 </div>
             </Modal>
 
-            <div className="app_header" style={{marginBottom: '45px'}}>
-              <img src={insta} style={{maxHeight: '100px', maxWidth: '100px'}} alt="instagram_name" className="app_headerImage"/>
+            <div className="app_header">
+                <img src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png" alt="instagram_name" className="app_headerImage"/>
+
                 {user ? (
                     <Button type="submit" onClick={() => auth.signOut()}>Logout</Button>
                 ) : (
-                    <div className="app_loginContainer">
+                    <div className="app_login_container">
                         <Button onClick={() => setOpenSignIn(true)}>Sign In</Button>
                         <Button onClick={() => setOpen(true)}>Sign Up</Button>
                     </div>
@@ -226,22 +220,22 @@ function App() {
                         })
                     }
                 </div>
-
-                <div className="app_posts_right">
-                    <InstagramEmbed
-                        url="https://www.instagram.com/p/CEEJsPxDS8U/"
-                        maxWidth={320}
-                        hideCaption={false}
-                        containerTagName='div'
-                        protocol=''
-                        injectScript
-                        onLoading={() => {}}
-                        onSuccess={() => {}}
-                        onFailure={() => {}}
-                    />
-                </div>
-
             </div>
+
+            <div style={{padding: '20px', display: 'flex', justifyContent: 'center'}}>
+                <InstagramEmbed
+                    url="https://www.instagram.com/p/CEEJsPxDS8U/"
+                    maxWidth={320}
+                    hideCaption={false}
+                    containerTagName='div'
+                    protocol=''
+                    injectScript
+                    onLoading={() => {}}
+                    onSuccess={() => {}}
+                    onFailure={() => {}}
+                />
+            </div>
+
 
             {user?.displayName ? (
                 <ImageUpload username={user.displayName} avatar={user.photoURL} />
